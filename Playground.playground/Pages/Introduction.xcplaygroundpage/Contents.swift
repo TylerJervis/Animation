@@ -36,7 +36,26 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+
+
+// Show the canvas in the playground's live view
+PlaygroundPage.current.liveView = canvas
+
+// Draw a face
+canvas.fillColor = .white
+canvas.defaultBorderWidth = 5
+canvas.drawEllipse(at: Point(x: 150, y: 300), width: 200, height: 200)
+
+// Draw eyes
+canvas.drawEllipse(at: Point(x: 125, y: 325), width: 10, height: 20)
+canvas.drawEllipse(at: Point(x: 175, y: 325), width: 10, height: 20)
+
+// Draw mouth
+canvas.drawEllipse(at: Point(x: 150, y: 270), width: 100, height: 30)
+
+// Turn mouth into a smile by covering up top half of mouth
+canvas.drawShapesWithBorders = false
+canvas.drawRectangle(at: Point(x: 150, y: 275), width: 125, height: 25, anchoredBy: .centre)
 
 /*:
  ## Show the Assistant Editor
