@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 19 and 20.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -35,9 +35,30 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+// background
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+//arrows pattern
+for y in stride(from: 0, to: 400, by: 80) {
+    for x in stride(from: 0, to: 400, by: 80) {
+        
+        if y-x==0 {
+            // Draw white arrows
+            canvas.lineColor = Color(hue: 83, saturation: 4, brightness: 89, alpha: 100)
+            
+        } else {
+            // Draw purple arrows
+            canvas.lineColor = Color(hue: 309, saturation: 78, brightness: 64, alpha: 100)
+            
+        }
+        canvas.defaultLineWidth = 15
+        canvas.drawLine(from: Point(x:x+5, y:y+5), to: Point(x: x+5, y: y+60))
+        canvas.drawLine(from: Point(x: x+5, y: y+5), to: Point(x:x+60, y: y+5))
+        canvas.drawLine(from: Point(x:x+8, y:y+8), to: Point(x:x+60, y:y+60))
+    }
+}
+
+
 
 /*:
  ## Show the Live View
@@ -54,3 +75,4 @@ canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
  
  ![source_control](source-control.png "Source Control")
  */
+
